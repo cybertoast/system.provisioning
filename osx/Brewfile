@@ -331,6 +331,7 @@ brew "denji/nginx/nginx-full", args: ["with-geoip", "with-image-filter", "with-l
 brew "exolnet/deprecated/php@5.6", link: true
 brew "wpengine/wpe-cli/wpe-cli"
 
+
 cask "xquartz"
 cask "ableton-live-suite"
 # cask "acquia-dev-desktop"
@@ -401,4 +402,8 @@ cask "find-any-file"
 cask "diffmerge"
 
 # For machine-learning stuff
+brew "jupyterlab"
 cask "nvidia-cuda"
+
+# Sysops
+brew "iperf3"
