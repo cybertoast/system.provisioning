@@ -1,0 +1,13 @@
+# This is not the most elegant solution, but it works!
+# Thanks to: https://github.com/Homebrew/homebrew-bundle/issues/521
+# Set up each of the individual brewfiles:
+
+# Base 
+instance_eval(File.read("Brewfile.base"))
+
+# Dev 
+instance_eval(File.read("Brewfile.dev"))
+instance_eval(File.read("Brewfile.design"))
+instance_eval(File.read("Brewfile.biz"))
+
+

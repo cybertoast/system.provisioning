@@ -13,7 +13,7 @@ require Brewfile.dev
 require Brewfile.design
 require Brewfile.biz
 
-# Base
+# Get all taps first
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -22,22 +22,86 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 # Dev
-tap "josegonzalez/php"
 tap "sensu/tap"
 # tap "tokutek/tokumx"
+# Development related, for example with Git
+brew "git"
+brew "bfg"
+brew "git-annex"
+brew "git-archive-all"
+brew "git-crypt"
+brew "git-extras"
+brew "git-flow"
+brew "git-ftp"
+brew "git-lfs"
+brew "git-utils", args: ["HEAD"]
+cask "diffmerge"
+cask "rowanj-gitx"
+
+
+# Wordpress
 tap "wpengine/wpe-cli"
+cask "wordpresscom"
+brew "wpengine/wpe-cli/wpe-cli"
+
+#--------------------------------------------------
+# Cloud Systems
+#--------------------------------------------------
+# Aws
 tap "aws/tap"
+brew "aws-cfn-tools"
+brew "aws-elasticbeanstalk"
+brew "awscli"
+brew "awslogs"
+
+# Azure
+brew "azure-cli"
+#--------------------------------------------------
+# /End cloud Systems
+#--------------------------------------------------
+
+
+# Programming Languages
+tap "josegonzalez/php"
 tap "dart-lang/dart"
+tap "fabsb/flutter"
+brew "python", link: false
+brew "gcc"
+brew "go"
+cask "flutter"
+brew "node", link: false
+# brew "node@10"
+# brew "node@8", link: true
+cask "touchdesigner"
+cask "visual-studio-code"
+cask "xoctave"
+brew "composer"
+brew "erlang"
+brew "brew-php-switcher"
+brew "php", link: false
+brew "exolnet/deprecated/php@5.6", link: true
+brew "kotlin"
+cask "android-sdk"
+
+# Systems Setup 
 tap "denji/nginx"
 # tap "exolnet/deprecated"
-tap "fabsb/flutter"
 
-brew "ack"
-brew "adns"
+# Basics, libraries and dependencies
 brew "freetype"
 brew "openssl@1.1"
 brew "the_silver_searcher"
-brew "python", link: false
+
+# Systems Tools
+cask "tunnelblick"
+cask "vagrant"
+cask "vagrant-manager"
+cask "virtualbox"
+brew "docker", link: false
+brew "docker-machine"
+
+
+# Core libraries and dependencies
 brew "jpeg"
 brew "icu4c"
 brew "librsvg"
@@ -51,7 +115,6 @@ brew "argtable"
 brew "gmp"
 brew "mpfr"
 brew "libmpc"
-brew "gcc"
 brew "open-mpi"
 brew "openblas"
 brew "atomicparsley"
@@ -59,19 +122,12 @@ brew "atomicparsley"
 brew "autoconf"
 brew "automake"
 brew "autossh"
-brew "aws-cfn-tools"
-brew "aws-elasticbeanstalk"
-brew "awscli"
-brew "awslogs"
-brew "azure-cli"
 brew "bar"
 brew "base64"
-brew "bfg"
 brew "bison@2.7"
 brew "boost"
 brew "boost-build"
 brew "boost-python"
-brew "brew-php-switcher"
 brew "cairomm"
 brew "cdpr"
 brew "cmake"
@@ -84,14 +140,11 @@ brew "cloud-watch"
 brew "clucene"
 brew "cmu-sphinxbase"
 brew "cocoapods", link: false
-brew "composer"
 brew "coreutils"
 brew "curl"
 brew "libssh2"
 brew "dcraw"
 brew "ddrescue"
-brew "docker", link: false
-brew "docker-machine"
 brew "doctl"
 brew "dos2unix"
 brew "doxygen"
@@ -102,7 +155,6 @@ brew "elb-tools"
 brew "elinks"
 brew "popt"
 brew "ghostscript"
-brew "erlang"
 brew "exempi"
 brew "exiftool"
 brew "libexif"
@@ -130,7 +182,6 @@ brew "gdal"
 brew "gdb"
 brew "geckodriver"
 brew "getmail"
-brew "git"
 brew "libgpg-error"
 brew "gsasl"
 brew "gtk+3"
@@ -138,20 +189,11 @@ brew "lua@5.1"
 brew "py3cairo"
 brew "pygobject3"
 brew "quvi"
-brew "git-annex"
-brew "git-archive-all"
-brew "git-crypt"
-brew "git-extras"
-brew "git-flow"
-brew "git-ftp"
-brew "git-lfs"
-brew "git-utils", args: ["HEAD"]
 brew "glfw"
 brew "gnome-common"
 brew "libksba"
 brew "npth"
 brew "pinentry"
-brew "go"
 brew "google-sparsehash"
 brew "gpgme"
 brew "libusb-compat"
@@ -178,7 +220,6 @@ brew "iperf3"
 brew "jbig2dec"
 brew "jq"
 brew "jsonpp"
-brew "kotlin"
 # brew "leafnode"
 brew "leiningen"
 brew "libao"
@@ -223,9 +264,6 @@ brew "ncftp"
 brew "neo4j"
 brew "neon"
 brew "nmap"
-brew "node", link: false
-# brew "node@10"
-# brew "node@8", link: true
 brew "nodeenv"
 brew "normalize"
 brew "ocaml"
@@ -241,7 +279,6 @@ brew "p7zip"
 brew "packer"
 brew "pdfgrep"
 brew "pg_top"
-brew "php", link: false
 brew "pidof"
 brew "platformio"
 brew "png2ico"
@@ -328,15 +365,12 @@ brew "dart-lang/dart/dart"
 brew "denji/nginx/ngx-devel-kit"
 brew "denji/nginx/lua-nginx-module"
 brew "denji/nginx/nginx-full", args: ["with-geoip", "with-image-filter", "with-lua-module"]
-brew "exolnet/deprecated/php@5.6", link: true
-brew "wpengine/wpe-cli/wpe-cli"
 
 
 cask "xquartz"
 cask "ableton-live-suite"
 # cask "acquia-dev-desktop"
 cask "anaconda"
-cask "android-sdk"
 cask "angry-ip-scanner"
 cask "arduino"
 cask "atom"
@@ -352,7 +386,6 @@ cask "emclient"
 cask "expressvpn"
 cask "fing"
 cask "firefox"
-cask "flutter"
 cask "fritzing"
 cask "google-chrome"
 cask "google-drive-file-stream"
@@ -375,7 +408,6 @@ cask "postman"
 cask "processing"
 cask "projectlibre"
 cask "pycharm-ce"
-cask "rowanj-gitx"
 cask "sequel-pro-nightly"
 cask "shimo"
 cask "silicon-labs-vcp-driver"
@@ -388,18 +420,11 @@ cask "tableplus"
 cask "teamviewer"
 cask "thunderbird"
 cask "toggl"
-cask "touchdesigner"
-cask "tunnelblick"
-cask "vagrant"
-cask "vagrant-manager"
-cask "virtualbox"
-cask "visual-studio-code"
+
 cask "wkhtmltopdf"
-cask "wordpresscom"
-cask "xoctave"
 cask "zerotier-one"
 cask "find-any-file"
-cask "diffmerge"
+
 
 # For machine-learning stuff
 brew "jupyterlab"
